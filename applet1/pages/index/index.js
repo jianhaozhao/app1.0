@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
+    motto: '你想看什么',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -12,7 +12,6 @@ Page({
   //事件处理函数
   bindViewTap: function(event) {
     var url = '../' + event.currentTarget.dataset.value + '/' + event.currentTarget.dataset.value
-    console.info("下面：")
     console.info( event.currentTarget)
     wx.navigateTo({
       url: url
@@ -20,6 +19,7 @@ Page({
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
+      console.info('我是info', app.globalData.userInfo)
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
@@ -28,6 +28,7 @@ Page({
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
+        console.info('我是用户反馈', res.userInfo)
         this.setData({
           userInfo: res.userInfo,
           hasUserInfo: true
