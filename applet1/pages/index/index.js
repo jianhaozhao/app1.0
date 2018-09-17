@@ -4,22 +4,65 @@ const app = getApp()
 
 Page({
   data: {
-    motto: '你想看什么',
+    asd:1,
+    motto: '小说',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    list: [
+      {
+        id: 'view',
+        name: '阅读',
+        open: false,
+        pages: ['view', 'scroll-view', 'swiper']
+      }, {
+        id: 'content',
+        name: '电影',
+        open: false,
+        pages: ['text', 'icon', 'progress']
+      }, {
+        id: 'form',
+        name: '动漫',
+        open: false,
+        pages: ['button', 'checkbox', 'form', 'input', 'label', 'picker', 'radio', 'slider', 'switch', 'textarea']
+      }, {
+        id: 'nav',
+        name: '风景',
+        open: false,
+        pages: ['navigator']
+      }, {
+        id: 'media',
+        name: '还可以',
+        open: false,
+        pages: ['image', 'audio', 'video']
+      }, {
+        id: 'map',
+        name: '我试试',
+        pages: ['map']
+      }, {
+        id: 'canvas',
+        name: '不知道行不行',
+        pages: ['canvas']
+      }
+    ],
+    array: [1, 2, 3, 4, 5]
+
   },
   //事件处理函数
   bindViewTap: function(event) {
     var url = '../' + event.currentTarget.dataset.value + '/' + event.currentTarget.dataset.value
     console.info( event.currentTarget)
-    wx.navigateTo({
+    wx.navigateTo({ 
       url: url
+    })
+  },
+  clickone:function(res){
+    this.setData({
+        asd: this.data.asd + 1
     })
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
-      console.info('我是info', app.globalData.userInfo)
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true

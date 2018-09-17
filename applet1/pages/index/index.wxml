@@ -5,12 +5,18 @@
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
     <view class='head-portrait'>
-      <image bindtap="bindViewTap" data-value='page2' class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <image bindtap="bindViewTap" data-value='logs' class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </view>
     </block>
   </view>
+  <block wx:for-items="{{list}}" wx:key="{{item.id}}">
+      <view class="kind-list-text">{{item.name}}</view>
+  </block>
   <view class="usermotto" data-value='page2' catch:tap='bindViewTap'>
     <text class="user-motto">{{motto}}</text>
   </view>
+  <text class='asd'>{{asd}}</text>
+  <view bindtap='clickone'>点击一下</view>
+  
 </view>
