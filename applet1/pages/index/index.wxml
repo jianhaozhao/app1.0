@@ -10,6 +10,8 @@
     </view>
     </block>
   </view>
+  
+  
   <block wx:for-items="{{list}}" wx:key="{{item.id}}">
       <view class="kind-list-text">{{item.name}}</view>
   </block>
